@@ -39,7 +39,7 @@ class BinarySearchTree{
    /**
     * Traverse the tree going Node, Left, Right.
     * Prints out the value of each node.
-    * @param root
+    * @param root Starts method from root of tree.
     */
    public void preOrderTraversal(Node root){
       
@@ -62,7 +62,7 @@ class BinarySearchTree{
    /**
     * Traverse the tree going Left, Node, Right.
     * Prints out the value of each node.
-    * @param root
+    * @param root Starts method from root of tree.
     */
    public void inOrderTraversal(Node root){
 
@@ -85,7 +85,7 @@ class BinarySearchTree{
    /**
     * Traverse the tree going Left, Right, Node.
     * Prints out the value of each node.
-    * @param root
+    * @param root Starts method from root of tree.
     */
    public void postOrderTraversal(Node root){
 
@@ -103,17 +103,30 @@ class BinarySearchTree{
       // process node
       System.out.println(root.value + " ");
    }
-   
-   
-   
-   /*
-   a method to find the node in the tree
-   with a specific value
-   */
-   /*public boolean find(Node root, int key){
-	  //implement me
-      return false;           
-   }*/
+
+
+   /**
+    * Searching for int value in the binary tree.
+    * Uses recursive calls to traverse the tree.
+    * @param root Starts search from root of tree
+    * @param key Integer value this method is looking for.
+    * @return true if key found, else false
+    */
+   public boolean find(Node root, int key){
+
+      // base case
+      if (root == null) {
+         return false;
+      }
+
+      // check if node equals parameter key int
+      if (root.value == key) {
+         return true;
+      }
+
+      // search left and right subtrees
+      return find(root.left, key) || find(root.right, key);
+   }
    
    
    
