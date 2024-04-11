@@ -127,16 +127,31 @@ class BinarySearchTree{
       // search left and right subtrees
       return find(root.left, key) || find(root.right, key);
    }
-   
-   
-   
-   /*
-   a method to find the node in the tree
-   with a smallest key
-   */
-   /*public int getMin(Node root){
-      //implement me
-   }*/
+
+   /**
+    * Finds the smallest node in the tree.
+    * @param root Starts search from root of tree.
+    * @return Left most node value of type int.
+    */
+   public int getMin(Node root){
+
+      // base case
+      if (root == null) {
+         // returning -1 if tree is empty
+         return -1;
+      }
+
+      // left most leaf has smallest value in BST
+      Node temp = root;
+
+      // traversing left in tree
+      while (temp.left != null) {
+         temp = temp.left;
+      }
+
+      return temp.value;
+
+   }
   
   
   
