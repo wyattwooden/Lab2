@@ -150,26 +150,37 @@ class BinarySearchTree{
       }
 
       return temp.value;
-
    }
-  
-  
-  
-   /*
-   a method to find the node in the tree
-   with a largest key
-   */
-   /*public int getMax(Node root){
-	  //implement me
-   }*/
-   
-   
+
+   /**
+    * Finds the largest node in the tree.
+    * @param root Starts search from root of tree.
+    * @return Right most node value of type int.
+    */
+   public int getMax(Node root){
+
+      // base case
+      if (root == null) {
+         // returning -1 if tree is empty
+         return -1;
+      }
+
+      // right most leaf has largest value in BST
+      Node temp = root;
+
+      // traversing right in tree
+      while (temp.right != null) {
+         temp = temp.right;
+      }
+
+      return temp.value;
+   }
    
    /*
    this method will not compile until getMax
    is implemented
    */
-  /* public Node delete(Node root, int key){
+  public Node delete(Node root, int key){
       
       if(root == null){
          return root;
@@ -195,13 +206,8 @@ class BinarySearchTree{
          }
       }
       return root;  
-   }*/
-   
-   
-   
+   }
 }
-
-
 
 public class TreeDemo{
    public static void main(String[] args){
